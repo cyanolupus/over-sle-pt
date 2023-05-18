@@ -1,0 +1,15 @@
+name = "over-sle-pt"
+workers_dev = true
+compatibility_date = "2023-01-15"
+main = "build/worker/shim.mjs"
+vars = { WORKERS_RS_VERSION = "0.0.16" }
+routes = [
+    "over-sle.pt/*",
+    "*.over-sle.pt/*",
+]
+
+[build]
+command = "cargo install -q worker-build && worker-build --release" # required
+
+# read more about configuring your Worker via wrangler.toml at:
+# https://developers.cloudflare.com/workers/cli-wrangler/configuration
